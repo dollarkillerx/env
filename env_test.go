@@ -6,6 +6,7 @@ import (
 	"time"
 	"github.com/stretchr/testify/assert"
 )
+
 type config struct {
 	App     string
 	Port    int      `default:"8000"`
