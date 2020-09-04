@@ -216,7 +216,7 @@ func parse(prefix string, f reflect.Value, sf reflect.StructField) error {
 					return fmt.Errorf("%s:%s", prefix, err)
 				}
 				t[i] = float32(val)
-		github.com/dollarkillerx/env	}
+		}
 		case reflect.TypeOf([]float64{}):
 			t := make([]float64, len(vals))
 			for i, v := range vals {
