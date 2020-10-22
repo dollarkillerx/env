@@ -1,11 +1,11 @@
 package env
 
 import (
-	"reflect"
-	"strings"
-	"strconv"
-	"os"
 	"fmt"
+	"os"
+	"reflect"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -13,6 +13,7 @@ var (
 	defaultSep = "_"
 )
 var env *Env
+
 type Env struct {
 	ignorePrefix bool
 }
@@ -33,9 +34,11 @@ func Fill(v interface{}) error {
 	return env.Fill(v)
 }
 
-func (e *Env)Fill(v interface{}) error {
+
+
+func (e *Env) Fill(v interface{}) error {
 	ind := reflect.Indirect(reflect.ValueOf(v))
-	if reflect.ValueOf(v).Kind() != reflect.Ptr || ind.Kind() != reflect.Struct{
+	if reflect.ValueOf(v).Kind() != reflect.Ptr || ind.Kind() != reflect.Struct {
 		return fmt.Errorf("only the pointer to a struct is supported")
 	}
 
@@ -216,7 +219,7 @@ func parse(prefix string, f reflect.Value, sf reflect.StructField) error {
 					return fmt.Errorf("%s:%s", prefix, err)
 				}
 				t[i] = float32(val)
-		}
+			}
 		case reflect.TypeOf([]float64{}):
 			t := make([]float64, len(vals))
 			for i, v := range vals {
